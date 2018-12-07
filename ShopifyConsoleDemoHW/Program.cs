@@ -24,11 +24,16 @@ using Newtonsoft.Json;
             // Get date 30 days ago
             DateTime today = DateTime.Today;
             DateTime thirtyDays = today.AddDays(-30);
+                string apiTemplate = "http://admin.orders.json?status=open&created_at_min={0}";
+                //build the request for the Shopify API using the template and today's date.
+                string apiQuery = string.Format(apiTemplate, thirtyDays.ToString("o"));
+
             //Get the JSON from shopify
-            String rawJSON = webClient.DownloadString("http://admin.orders.json?status=open&created_at_min={0}", thirtyDays.ToString("o"));
+            String rawJSON = webClient.DownloadString(apiQuery);
                 // convert the JSON string to series of objects
                 ShopifyAPIORders shopifyAPIORders = JsonConvert.DeserializeObject<ShopifyAPIORders>(rawJSON);
-            Console.WriteLine("You have {0} orders in the last 30 days", shopifyAPIORders.orders.Length);
+                //print out number of orders received
+            Console.WriteLine("You have {0} orders in the last 30 days", shopifyAPIORders.orders.Count);
 
 
             }

@@ -49,6 +49,7 @@ namespace ShopifyConsoleDemoHW
                 SqlCommand command = new SqlCommand(sql, connection);
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
+
                 try
                 {
                     while (reader.Read())

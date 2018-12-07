@@ -10,8 +10,8 @@ namespace ShopifyConsoleDemoHW
     // For convenience, placed all classed in 1 file. In reality would use 1 file per class.
 public class ShopifyAPIORders
 {
-    public int id { get; set; }
-        public Order[] orders { get; set; }
+    //public int id { get; set; }
+        public List<Order> orders { get; set; }
 }
 
 public class Order
