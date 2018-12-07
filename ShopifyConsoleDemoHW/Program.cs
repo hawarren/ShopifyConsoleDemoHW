@@ -17,7 +17,7 @@ using Newtonsoft.Json;
         {
 
 
-            //sample code to get open orders within the last 30 days. Do not have Shopify account to test against.
+            //sample code to get open orders within the last 30 days. Do not have Shopify account or api credentials to test against.
             using (var webClient = new WebClient())
             {
 
